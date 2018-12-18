@@ -16,7 +16,7 @@ app.use(compression());
 //
 // Replace the name below to match your own "defaultProject" value!
 //
-const appname = 'cm-a2-angular';
+const appname = 'CM-A2-Angular';
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist', appname)));
