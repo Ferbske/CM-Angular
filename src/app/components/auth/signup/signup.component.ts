@@ -18,7 +18,6 @@ export class SignupComponent implements OnInit {
 
   onRegister(username: string, email: string, password: string){
     this.errorcode = this.authenticationService.signupUser(username, email, password);
-    console.log(this.errorcode);
   }
 
 }
