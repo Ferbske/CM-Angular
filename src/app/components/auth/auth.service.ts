@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
-import {Router} from "@angular/router";
+import {Http} from '@angular/http';
+import {Router} from '@angular/router';
 
 @Injectable()
 
 export class AuthService {
-  url: string = 'https://a2-cm-csfwp-api.herokuapp.com/api';
+  url: String = 'https://a2-cm-csfwp-api.herokuapp.com/api';
 
   constructor(private http: Http, private router: Router) {
   }
@@ -27,7 +27,7 @@ export class AuthService {
           return error.status;
         }
       );
-    return 409
+    return 409;
   }
 
   signinUser(username: string, password: string) {
@@ -39,7 +39,7 @@ export class AuthService {
       .subscribe(
         (response) => {
           this.router.navigate(['/dashboard']);
-          localStorage.setItem("Token", response.json().token);
+          localStorage.setItem('Token', response.json().token);
           return response.json().response.statusCode;
         },
         (error) => {
@@ -47,19 +47,19 @@ export class AuthService {
           return error.status;
         }
       );
-    return 401
+    return 401;
   }
 
   logout() {
-    localStorage.removeItem("Token");
+    localStorage.removeItem('Token');
     this.router.navigate(['/signin']);
   }
 
   getToken() {
-    return localStorage.getItem("Token");
+    return localStorage.getItem('Token');
   }
 
   isAuthenticated() {
-    return localStorage.getItem("Token") != null;
+    return localStorage.getItem('Token') != null;
   }
 }
