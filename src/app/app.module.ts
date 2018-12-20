@@ -10,6 +10,8 @@ import {AuthService} from './components/auth/auth.service';
 import {AuthGuardService} from './components/auth/auth-guard.service';
 import { FormsModule} from '@angular/forms';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { DeleteModalComponent } from './components/dashboard/delete-modal/delete-modal.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     SignupComponent,
     SigninComponent,
     DashboardComponent,
-    NavigationComponent
+    NavigationComponent,
+    DeleteModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    NgbModule,
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
