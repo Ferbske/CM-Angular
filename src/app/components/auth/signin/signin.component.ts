@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from "../auth.service";
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -9,6 +10,7 @@ import {AuthService} from "../auth.service";
 })
 
 export class SigninComponent implements OnInit {
+  @ViewChild('f') singInForm: NgForm;
   errorcode: number;
 
   constructor(private authenticationService: AuthService) { }
@@ -16,7 +18,7 @@ export class SigninComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLogin(username: string, password: string){
-    this.errorcode = this.authenticationService.signinUser(username, password);
+  onLogin() {
+    this.errorcode = this.authenticationService.signinUser(this.singInForm.value.username, this.singInForm.value.password);
   }
 }
