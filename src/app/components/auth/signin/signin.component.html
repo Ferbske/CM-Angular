@@ -27,7 +27,7 @@
             </div>
           </div>
           <div>
-            <span class="alerttext" *ngIf="errorcode == 401">Please enter the right credentials</span>
+            <p class="alertText bigText" *ngIf="errorcode == 401">Please enter the right credentials<br/></p>
           </div>
           <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign in</button>
           <p class="bigText"><br/>Don't have an account yet? Please <a routerLink="/signup"> sign up</a>.</p>
