@@ -1,0 +1,46 @@
+<div class="row card-wrapper justify-content-md-center">
+  <div class="col-sm-12 col-md-10">
+    <div class="card-container">
+      <div class="card">
+        <form (ngSubmit)="onRegister()" #f="ngForm">
+          <div class="form-group">
+            <div class="form-input">
+              <input type="email" id="email" name="email" ngModel class="form-control" required email #email="ngModel">
+              <label for="email">Mail</label>
+            </div>
+            <div class="form-input-validation">
+              <div [ngClass]="{'form-input-error': true}" *ngIf="!email.valid && email.touched">Please enter a valid
+                email address
+              </div>
+            </div>
+            <div class="form-input">
+              <input type="username" id="username" name="username" ngModel class="form-control" required
+                     #username="ngModel">
+              <label for="username">Username</label>
+            </div>
+            <div class="form-input-validation">
+              <div [ngClass]="{'form-input-error': true}" *ngIf="!username.valid && username.touched">Must be at least 2
+                characters
+              </div>
+            </div>
+            <div class="form-input">
+              <input type="password" id="password" name="password" ngModel class="form-control" required
+                     #password="ngModel">
+              <label for="password">Password</label>
+            </div>
+            <div class="form-input-validation">
+              <div [ngClass]="{'form-input-error': true}" *ngIf="!password.valid && password.touched">Please enter a
+                stronger password
+              </div>
+            </div>
+          </div>
+          <div>
+            <span class="alerttext" *ngIf="errorcode == 409">Please enter the right credentials</span>
+          </div>
+          <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign up</button>
+          <p class="bigText"><br/>Already have an account? Please <a routerLink="/signin"> sign in</a>.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
