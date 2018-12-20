@@ -9,13 +9,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {AuthService} from './components/auth/auth.service';
 import {AuthGuardService} from './components/auth/auth-guard.service';
 import { FormsModule} from '@angular/forms';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     SigninComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
