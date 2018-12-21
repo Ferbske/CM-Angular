@@ -8,6 +8,13 @@
   color: black;
 }
 
+.border{
+  border-style: solid;
+  border-color: #717171;
+  border-radius: 25px;
+  padding: 8px;
+}
+
 p.bigText{
   font-size: 125%;
 }

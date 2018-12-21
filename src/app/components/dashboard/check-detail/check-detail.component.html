@@ -1,6 +1,6 @@
 <div class="row card-wrapper justify-content-md-center">
   <div class="col-1">
-    <button class="btn btn-outline-dark" routerLink="/dashboard"><span class="cm-icon cm-icon-arrow-left" aria-hidden="true"></span> back</button>
+    <button class="btn btn-outline-dark" (click)="backClicked()"><span class="cm-icon cm-icon-arrow-left" aria-hidden="true"></span> back</button>
   </div>
   <div class="col-sm-12 col-md-10 card-container">
   <div class="card">
@@ -12,7 +12,7 @@
         and the payment method is IDeal</p>
     </div>
 
-    <h2>Alerts: </h2>
+    <h2>Alerts</h2>
 
     <div class="col-12">
       <!--TODO: add a for loop let order for order. The orders array comes from a api call in a orderservicesclass -->

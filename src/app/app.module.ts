@@ -15,6 +15,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CheckCreateComponent } from './components/dashboard/check-create/check-create.component';
 import { CheckReadComponent } from './components/dashboard/check-read/check-read.component';
 import { CheckDetailComponent } from './components/dashboard/check-detail/check-detail.component';
+import { OrderDetailComponent } from './components/dashboard/order-detail/order-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CheckDetailComponent } from './components/dashboard/check-detail/check-
     DeleteModalComponent,
     CheckCreateComponent,
     CheckReadComponent,
-    CheckDetailComponent
+    CheckDetailComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 
 @Component({
-  selector: 'app-check-detail',
-  templateUrl: './check-detail.component.html',
-  styleUrls: ['./check-detail.component.css']
+  selector: 'app-order-detail',
+  templateUrl: './order-detail.component.html',
+  styleUrls: ['./order-detail.component.css']
 })
-export class CheckDetailComponent implements OnInit {
+export class OrderDetailComponent implements OnInit {
 
   constructor(private _location: Location) { }
 
   backClicked() {
     this._location.back();
   }
+
   ngOnInit() {
   }
 
