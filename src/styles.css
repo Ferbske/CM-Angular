@@ -12,3 +12,7 @@ img.navbarLogo{
   height: 6%;
   width: 6%;
 }
+
+a.editLink{
+  cursor: pointer
+}
