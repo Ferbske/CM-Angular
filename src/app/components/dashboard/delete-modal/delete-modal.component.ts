@@ -13,8 +13,11 @@ export class DeleteModalComponent implements OnInit {
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      // TODO: remove closeResult and getDismissReason method.
+      // TODO: here you write the api delete statement
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
+      // TODO: remove the closeResult.
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
