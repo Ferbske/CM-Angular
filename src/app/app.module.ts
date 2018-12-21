@@ -12,6 +12,9 @@ import { FormsModule} from '@angular/forms';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { DeleteModalComponent } from './components/dashboard/delete-modal/delete-modal.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CheckCreateComponent } from './components/dashboard/check-create/check-create.component';
+import { CheckReadComponent } from './components/dashboard/check-read/check-read.component';
+import { CheckDetailComponent } from './components/dashboard/check-detail/check-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SigninComponent,
     DashboardComponent,
     NavigationComponent,
-    DeleteModalComponent
+    DeleteModalComponent,
+    CheckCreateComponent,
+    CheckReadComponent,
+    CheckDetailComponent
   ],
   imports: [
     BrowserModule,
