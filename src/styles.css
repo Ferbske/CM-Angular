@@ -18,6 +18,9 @@
 p.bigText{
   font-size: 125%;
 }
+p.biggerText{
+  font-size: 170%;
+}
 
 img.navbarLogo{
   height: 6%;
