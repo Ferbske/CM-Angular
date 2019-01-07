@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../auth.service";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {AuthService} from '../auth.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -9,6 +10,7 @@ import {AuthService} from "../auth.service";
 })
 
 export class SignupComponent implements OnInit {
+  @ViewChild('f') singUpForm: NgForm;
   errorcode: number;
 
   constructor(private authenticationService: AuthService) { }
@@ -16,8 +18,8 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  onRegister(username: string, email: string, password: string){
-    this.errorcode = this.authenticationService.signupUser(username, email, password);
+  onRegister() {
+    this.errorcode = this.authenticationService.signupUser(this.singUpForm.value.username, this.singUpForm.value.email, this.singUpForm.value.password);
   }
 
 }
