@@ -1,3 +1,26 @@
 <p>
-  merchants works!
+  Please enter the variables you want to create a check on. You can add multiple countries on which the merchant has to be from or could be from. You can also specify on which merchant category the check triggers.
 </p>
+
+<form>
+  <div class="form-group col-3">
+    <div class="form-input">
+      <select id="countries" class="form-control">
+        <option value="all">All</option>
+        <option value="ideal">Netherlands</option>
+        <option value="ideal">England</option>
+      </select>
+      <label for="countries">Countries</label>
+    </div>
+    <div class="form-input">
+      <select id="Category" class="form-control">
+        <option value="all">All</option>
+        <option value="ideal">Pawn Shops</option>
+        <option value="ideal">Department Stores</option>
+      </select>
+      <label for="countries">Countries</label>
+    </div>
+  </div>
+  <button class="btn btn-primary float-right right" >Create</button>
+</form>
+

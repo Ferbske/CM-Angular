@@ -8,12 +8,16 @@
   </div>
 
   <div class="form-input">
-    <input type="time" id="time" name="time" class="form-control" ngModel required>
+    <input type="number" id="time" name="time" class="form-control" ngModel required>
     <label for="time">Time in hours</label>
   </div>
 
   <div class="form-input">
-    <input type="pay" id="pay" name="pay" class="form-control" ngModel required>
+    <select id="pay" class="form-control">
+      <option value="all">All</option>
+      <option value="ideal">IDeal</option>
+      <option value="creditCard">CreditCard</option>
+    </select>
     <label for="pay">Payment method</label>
   </div>
 </div>
