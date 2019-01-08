@@ -1,3 +1,41 @@
-<p>
-  check-create works!
-</p>
+<div class="row card-wrapper justify-content-md-center">
+  <div class="col-sm-12 col-md-10 card-container">
+    <div class="card">
+        <form class="col-12">
+          <div class="form-row">
+            <div class="row">
+              <h2>Create a new check</h2>
+            </div>
+            <div class="row">
+              <div class="padding col-3">
+                <p>Please select the information you want to create a check on</p>
+              </div>
+              <div class="form-radio col-1">
+                <label>
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios" [(ngModel)]="value" value="Payments"
+                         checked>
+                  <label class="form-check-label" for="exampleRadios">
+                    Payments
+                  </label>
+                </label>
+              </div>
+              <div class="form-radio col-1">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [(ngModel)]="value" value="Merchants">
+                <label class="form-check-label" for="exampleRadios2">
+                  Merchants
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+      <hr/>
+      <!--<div>-->
+        <!--<p> The value is:  {{value}}</p>-->
+      <!--</div>-->
+
+      <app-payments *ngIf="value == 'Payments'"></app-payments>
+      <app-merchants *ngIf="value == 'Merchants'"></app-merchants>
+
+    </div>
+  </div>
+</div>

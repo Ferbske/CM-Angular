@@ -16,6 +16,8 @@ import { CheckCreateComponent } from './components/dashboard/check-create/check-
 import { CheckReadComponent } from './components/dashboard/check-read/check-read.component';
 import { CheckDetailComponent } from './components/dashboard/check-detail/check-detail.component';
 import { OrderDetailComponent } from './components/dashboard/order-detail/order-detail.component';
+import { PaymentsComponent } from './components/dashboard/check-create/payments/payments.component';
+import { MerchantsComponent } from './components/dashboard/check-create/merchants/merchants.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { OrderDetailComponent } from './components/dashboard/order-detail/order-
     CheckCreateComponent,
     CheckReadComponent,
     CheckDetailComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    PaymentsComponent,
+    MerchantsComponent
   ],
   imports: [
     BrowserModule,

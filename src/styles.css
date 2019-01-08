@@ -8,6 +8,10 @@
   color: black;
 }
 
+.padding{
+  padding: 8px 0px;
+}
+
 .border{
   border-style: solid;
   border-color: #717171;
@@ -29,4 +33,13 @@ img.navbarLogo{
 
 a.editLink{
   cursor: pointer
+}
+
+hr{
+  height: 1px;
+  background-color: darkgray;
+}
+
+p{
+  font-size: 117%;
 }
