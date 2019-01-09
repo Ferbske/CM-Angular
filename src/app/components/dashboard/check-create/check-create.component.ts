@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-check-create',
@@ -7,13 +6,9 @@ import {Location} from '@angular/common';
   styleUrls: ['./check-create.component.css']
 })
 export class CheckCreateComponent implements OnInit {
-  value = "Payments";
+  value = 'Payments';
 
-  constructor(private _location: Location) { }
-
-  backClicked() {
-    this._location.back();
-  }
+  constructor() { }
 
   ngOnInit() {
   }
