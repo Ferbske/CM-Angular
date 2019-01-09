@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {InfoService} from '../../../../services/info.service';
+import {PaymentMethod} from './PaymentMethod';
 
 @Component({
   selector: 'app-payments',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payments.component.css']
 })
 export class PaymentsComponent implements OnInit {
+  paymentMethods: PaymentMethod[];
 
-  constructor() { }
+  constructor(private infoService: InfoService) {
+    this.getPaymentMethods();
+  }
 
   ngOnInit() {
+  }
+
+  getPaymentMethods() {
+    this.infoService.getPaymentMethods()
+      .subscribe((response) => {
+          this.paymentMethods = response.paymentMethods;
+          console.log(this.paymentMethods);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 
 }

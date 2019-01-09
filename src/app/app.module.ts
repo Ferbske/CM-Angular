@@ -18,6 +18,8 @@ import { CheckDetailComponent } from './components/dashboard/check-detail/check-
 import { OrderDetailComponent } from './components/dashboard/order-detail/order-detail.component';
 import { PaymentsComponent } from './components/dashboard/check-create/payments/payments.component';
 import { MerchantsComponent } from './components/dashboard/check-create/merchants/merchants.component';
+import {InfoService} from './services/info.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,9 +41,10 @@ import { MerchantsComponent } from './components/dashboard/check-create/merchant
     FormsModule,
     AppRoutingModule,
     HttpModule,
+    HttpClientModule,
     NgbModule,
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, InfoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
