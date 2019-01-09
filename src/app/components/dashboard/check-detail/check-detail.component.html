@@ -1,0 +1,62 @@
+<div class="row card-wrapper justify-content-md-center">
+  <div class="col-1">
+    <button class="btn btn-outline-dark" (click)="backClicked()"><span class="cm-icon cm-icon-arrow-left" aria-hidden="true"></span> back</button>
+  </div>
+  <div class="col-sm-12 col-md-10 card-container">
+  <div class="card">
+    <p class="biggerText border">This check will trigger when the total amount of money of the orders is above 10000,00 euros within 72 hours
+        and the payment method is IDeal</p>
+
+    <h2>Alerts</h2>
+
+    <div class="col-12">
+      <!--TODO: add a for loop let order for order. The orders array comes from a api call in a orderservicesclass -->
+      <div class="list-group m-t-24">
+        <div class="list-group-header row">
+          <div class="col-1 table-header">
+            <div class="subheading-01"></div>
+          </div>
+          <div class="col-2 table-header">
+            <div class="subheading-01">OrderID</div>
+          </div>
+          <div class="col-3 table-header">
+            <div class="subheading-01">Merchant name</div>
+          </div>
+          <div class="col-3 table-header">
+            <div class="subheading-01">Buyer name</div>
+          </div>
+          <div class="col-2 table-header">
+            <div class="subheading-01">Amount</div>
+          </div>
+          <div class="col-1 table-header">
+            <div class="subheading-01">Currency</div>
+          </div>
+        </div>
+        <!--TODO: change route so it has a real id-->
+        <div class="list-group-content row" routerLink="/order/id">
+          <div class="table-column text-nowrap text-truncate col-1">
+            <span class="cm-icon cm-icon-information editLink border" aria-hidden="true"> details </span>
+            <!--<span class="cm-icon cm-icon-show editLink" aria-hidden="true"> Show details</span>-->
+          </div>
+          <div class="table-column text-nowrap text-truncate col-2">
+            <strong>OrderID</strong>
+          </div>
+          <div class="table-column text-nowrap text-truncate col-3">
+            <strong>Merchant name</strong>
+          </div>
+          <div class="table-column text-nowrap text-truncate col-3">
+            <strong>Buyer name</strong>
+          </div>
+          <div class="table-column text-nowrap text-truncate col-2">
+            <strong>Amount</strong>
+          </div>
+          <div class="table-column text-nowrap text-truncate col-1">
+            <strong>Currency</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+

@@ -4,8 +4,30 @@
   color: red;
 }
 
+.normalText{
+  color: black;
+}
+
+.paddingVertical{
+  padding: 8px 0px;
+}
+
+.paddingHorizontal{
+  padding: 0px 5px;
+}
+
+.border{
+  border-style: solid;
+  border-color: #717171;
+  border-radius: 25px;
+  padding: 8px;
+}
+
 p.bigText{
   font-size: 125%;
+}
+p.biggerText{
+  font-size: 170%;
 }
 
 img.navbarLogo{
@@ -13,6 +35,15 @@ img.navbarLogo{
   width: 6%;
 }
 
-a.editLink{
+.editLink{
   cursor: pointer
+}
+
+hr{
+  height: 1px;
+  background-color: darkgray;
+}
+
+p{
+  font-size: 117%;
 }

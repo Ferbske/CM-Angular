@@ -1,0 +1,103 @@
+<div class="row card-wrapper justify-content-md-center">
+  <div class="col-1">
+    <button class="btn btn-outline-dark" (click)="backClicked()"><span class="cm-icon cm-icon-arrow-left"
+                                                                       aria-hidden="true"></span> back
+    </button>
+  </div>
+  <div class="col-sm-12 col-md-10 card-container">
+    <div class="card">
+      <p class="biggerText border">This check will trigger when the total amount of money of the orders is above 10000,00 euros within 72 hours
+        and the payment method is IDeal</p>
+
+      <div class="row">
+        <div class="col-6">
+          <h2>Merchant details</h2>
+          <div class="border">
+            <p>Name: ----------------------</p>
+            <p>Organization: --------------</p>
+            <p>Country: -------------------</p>
+            <p>City: ----------------------</p>
+            <p>Categories: ----------------</p>
+          </div>
+        </div>
+        <div class="col-6">
+          <h2>Buyer details</h2>
+          <div class="border">
+            <p>Name: ----------------------</p>
+            <p>Billing country: -----------</p>
+            <p>Shipping country: ----------</p>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <h2>Order details</h2>
+      <div class="row border">
+        <div class="col-6">
+          <p>ID: ------------------------</p>
+          <p>Reference: -----------------</p>
+          <p>Description: ---------------</p>
+        </div>
+        <div class="col-6">
+          <p>Amount: --------------------</p>
+          <p>Currency: ------------------</p>
+          <p>Created on: ----------------</p>
+        </div>
+      </div>
+      <br/>
+      <h2>Payments</h2>
+
+      <div class="col-12">
+        <!--TODO: add a for loop let payment for payments. The payments array comes from a api call in a paymentservicesclass -->
+        <div class="list-group m-t-24">
+          <div class="list-group-header row">
+            <div class="col-1 table-header">
+              <div class="subheading-01">ID</div>
+            </div>
+            <div class="col-2 table-header">
+              <div class="subheading-01">Merchant amount</div>
+            </div>
+            <div class="col-2 table-header">
+              <div class="subheading-01">CreditcardBIN</div>
+            </div>
+            <div class="col-1 table-header">
+              <div class="subheading-01">Status</div>
+            </div>
+            <div class="col-2 table-header">
+              <div class="subheading-01">Status details</div>
+            </div>
+            <div class="col-2 table-header">
+              <div class="subheading-01">Payment method</div>
+            </div>
+            <div class="col-2 table-header">
+              <div class="subheading-01">Created on</div>
+            </div>
+          </div>
+          <div class="list-group-content row">
+            <div class="table-column text-nowrap text-truncate col-1">
+              <strong>ID</strong>
+            </div>
+            <div class="table-column text-nowrap text-truncate col-2">
+              <strong>Merchant amount</strong>
+            </div>
+            <div class="table-column text-nowrap text-truncate col-2">
+              <strong>CreditcardBIN</strong>
+            </div>
+            <div class="table-column text-nowrap text-truncate col-1">
+              <strong>Status</strong>
+            </div>
+            <div class="table-column text-nowrap text-truncate col-2">
+              <strong>Status details</strong>
+            </div>
+            <div class="table-column text-nowrap text-truncate col-2">
+              <strong>Payment method</strong>
+            </div>
+            <div class="table-column text-nowrap text-truncate col-2">
+              <strong>Created on</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

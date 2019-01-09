@@ -12,6 +12,14 @@ import { FormsModule} from '@angular/forms';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { DeleteModalComponent } from './components/dashboard/delete-modal/delete-modal.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CheckCreateComponent } from './components/dashboard/check-create/check-create.component';
+import { CheckReadComponent } from './components/dashboard/check-read/check-read.component';
+import { CheckDetailComponent } from './components/dashboard/check-detail/check-detail.component';
+import { OrderDetailComponent } from './components/dashboard/order-detail/order-detail.component';
+import { PaymentsComponent } from './components/dashboard/check-create/payments/payments.component';
+import { MerchantsComponent } from './components/dashboard/check-create/merchants/merchants.component';
+import {InfoService} from './services/info.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,16 +28,23 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SigninComponent,
     DashboardComponent,
     NavigationComponent,
-    DeleteModalComponent
+    DeleteModalComponent,
+    CheckCreateComponent,
+    CheckReadComponent,
+    CheckDetailComponent,
+    OrderDetailComponent,
+    PaymentsComponent,
+    MerchantsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpModule,
+    HttpClientModule,
     NgbModule,
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, InfoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

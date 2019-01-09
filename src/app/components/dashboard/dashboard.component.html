@@ -1,38 +1,9 @@
 <div class="container justify-content-md-center">
   <div class="col-sm-12 col-md-12">
     <!--TODO: add the create check router-link to the button -->
-    <button class="btn btn-primary float-right right">Create Check</button>
+    <button class="btn btn-primary float-right right" routerLink="/check">Create Check</button>
 
-    <!--TODO: add a for loop let check for checks. The checks array comes from a api call in a checkservicesclass-->
-    <div class="list-group m-t-24 row">
-      <div class="list-group-header row">
-        <div class="col-10 col-sm-8 col-md-6 table-header">
-          <div class="subheading-01">Check name</div>
-        </div>
-      </div>
-      <div class="list-group-content row">
-        <div class="table-column text-nowrap text-truncate col-10">
-          <strong>Check 1</strong>
-        </div>
-        <div class="table-column icon">
-          <a class="editLink"><span class="cm-icon cm-icon-edit" aria-hidden="true">Edit |</span></a>
-        </div>
-        <div class="table-column icon">
-          <app-delete-modal></app-delete-modal>
-        </div>
-      </div>
-      <div class="list-group-content row">
-        <div class="table-column text-nowrap text-truncate col-10">
-          <strong>Check 2</strong>
-        </div>
-        <div class="table-column icon">
-          <a class="editLink"><span class="cm-icon cm-icon-edit" aria-hidden="true">Edit |</span></a>
-        </div>
-        <div class="table-column icon">
-          <app-delete-modal></app-delete-modal>
-        </div>
-      </div>
-    </div>
+    <app-check-read></app-check-read>
   </div>
 </div>
 
