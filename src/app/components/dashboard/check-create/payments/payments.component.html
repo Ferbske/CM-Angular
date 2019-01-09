@@ -20,6 +20,6 @@
     <label for="pay">Payment method</label>
   </div>
 </div>
-  <button class="btn btn-primary float-right" routerLink="/dashboard">Cancel</button>
-  <button class="btn btn-primary float-right" type="submit" [disabled]="!f.valid">Create</button>
+  <button class="btn btn-primary float-right" routerLink="/dashboard"><span class="cm-icon cm-icon-error" aria-hidden="true"> Cancel</span></button>
+  <button class="btn btn-primary float-right" type="submit" [disabled]="!f.valid"><span class="cm-icon cm-icon-save" aria-hidden="true"> Save</span></button>
 </form>

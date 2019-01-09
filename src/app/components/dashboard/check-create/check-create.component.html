@@ -3,9 +3,10 @@
     <div class="card">
         <form class="col-12">
           <div class="form-row">
-            <div class="row">
-              <h2>Create a new check</h2>
-            </div>
+            <!--TODO: keep this header or not?-->
+            <!--<div class="row">-->
+              <!--<h2>Create a new check</h2>-->
+            <!--</div>-->
             <div class="row">
               <div class="paddingVertical col-3">
                 <p>Please select the information you want to create a check on</p>
@@ -29,9 +30,6 @@
           </div>
         </form>
       <hr/>
-      <!--<div>-->
-        <!--<p> The value is:  {{value}}</p>-->
-      <!--</div>-->
 
       <app-payments *ngIf="value == 'Payments'"></app-payments>
       <app-merchants *ngIf="value == 'Merchants'"></app-merchants>
