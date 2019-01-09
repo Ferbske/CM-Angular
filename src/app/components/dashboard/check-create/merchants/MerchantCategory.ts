@@ -1,10 +1,10 @@
-export class Country {
+export class MerchantCategory {
   public Mcc: String;
-  public Name: String;
+  public Description: String;
 
 
-  constructor(IsoCode: String, Name: String) {
-    this.IsoCode = IsoCode;
-    this.Name = Name;
+  constructor(Mcc: String, Description: String) {
+    this.Mcc = Mcc;
+    this.Description = Description;
   }
 }

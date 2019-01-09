@@ -1,24 +1,24 @@
 <p>Please enter the variables you want to create a check on. The time in hours will add up all the amounts of the orders made between those hours. The check will trigger when the total amount is greater than the amount in euros specified below.</p>
 
-<form>
+<form (ngSubmit)="onCreate()" #f="ngForm">
 <div class="form-group col-4">
   <div class="form-input">
-    <input type="amount" id="amount" name="amount" class="form-control" ngModel required>
+    <input type="amount" id="amount" name="amount" class="form-control" #amount="ngModel" ngModel required>
     <label for="amount">Amount</label>
   </div>
 
   <div class="form-input">
-    <input type="number" id="time" name="time" class="form-control" ngModel required>
+    <input type="number" id="time" name="time" class="form-control" #time="ngModel" ngModel required>
     <label for="time">Time in hours</label>
   </div>
 
   <div class="form-input">
-    <select id="pay" class="form-control">
+    <select id="pay" class="form-control" name="pay" ngModel="all" #paymentMethod="ngModel">
       <option value="all">All</option>
       <option *ngFor="let method of paymentMethods" [value]="method.PaymentMethod">{{method.PaymentMethod}}</option>
     </select>
     <label for="pay">Payment method</label>
   </div>
 </div>
-  <button class="btn btn-primary float-right right" >Create</button>
+  <button class="btn btn-primary float-right right" type="submit" [disabled]="!f.valid">Create</button>
 </form>

@@ -2,23 +2,23 @@
   Please enter the variables you want to create a check on. You can add multiple countries on which the merchant has to be from or could be from. You can also specify on which merchant category the check triggers.
 </p>
 
-<form>
+<form (ngSubmit)="onCreate()" #f="ngForm">
   <div class="form-group col-4">
     <div class="form-input">
-      <select id="countries" class="form-control">
+      <select id="countries" class="form-control" name="country" ngModel="all" #country="ngModel">
         <option value="all">All</option>
         <option *ngFor="let country of countries" [value]="country.Name">{{country.Name}}</option>
       </select>
       <label for="countries">Countries</label>
     </div>
     <div class="form-input">
-      <select id="Category" class="form-control">
+      <select id="Category" class="form-control" name="category" ngModel="all" #category="ngModel">
         <option value="all">All</option>
-        <option *ngFor="let country of countries" [value]="country.Name">{{country.Name}}</option>
+        <option *ngFor="let category of merchantCategories" [value]="category.Description">{{category.Description}}</option>
       </select>
-      <label for="countries">Categories</label>
+      <label for="Category">Categories</label>
     </div>
   </div>
-  <button class="btn btn-primary float-right right" >Create</button>
+  <button class="btn btn-primary float-right right" type="submit" [disabled]="!f.valid">Create</button>
 </form>
 

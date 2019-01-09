@@ -18,4 +18,7 @@ export class InfoService {
     return this.http.get<any>(this.apiURL + '/countries', this.headers);
   }
 
+  getMerchantCategories() {
+    return this.http.get<any>(this.apiURL + '/merchantCategories', this.headers);
+  }
 }
