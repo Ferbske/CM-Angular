@@ -6,7 +6,7 @@
     <ng-template [ngIf]="authService.isAuthenticated()">
       <ul>
         <li>
-          <a routerLink="/" (click)="authService.logout()"> Log out </a>
+          <a routerLink="/" (click)="authService.logout()"><span class="cm-icon cm-icon-user-fill" aria-hidden="true"> Log out</span></a>
         </li>
       </ul>
     </ng-template>

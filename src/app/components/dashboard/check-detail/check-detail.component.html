@@ -13,6 +13,9 @@
       <!--TODO: add a for loop let order for order. The orders array comes from a api call in a orderservicesclass -->
       <div class="list-group m-t-24">
         <div class="list-group-header row">
+          <div class="col-1 table-header">
+            <div class="subheading-01"></div>
+          </div>
           <div class="col-2 table-header">
             <div class="subheading-01">OrderID</div>
           </div>
@@ -31,6 +34,10 @@
         </div>
         <!--TODO: change route so it has a real id-->
         <div class="list-group-content row" routerLink="/order/id">
+          <div class="table-column text-nowrap text-truncate col-1">
+            <span class="cm-icon cm-icon-information editLink border" aria-hidden="true"> details </span>
+            <!--<span class="cm-icon cm-icon-show editLink" aria-hidden="true"> Show details</span>-->
+          </div>
           <div class="table-column text-nowrap text-truncate col-2">
             <strong>OrderID</strong>
           </div>
@@ -45,10 +52,6 @@
           </div>
           <div class="table-column text-nowrap text-truncate col-1">
             <strong>Currency</strong>
-          </div>
-          <div class="table-column text-nowrap text-truncate col-1">
-            <span class="cm-icon cm-icon-information editLink border" aria-hidden="true"> detail view</span>
-            <!--<span class="cm-icon cm-icon-show editLink" aria-hidden="true"> Show details</span>-->
           </div>
         </div>
       </div>
