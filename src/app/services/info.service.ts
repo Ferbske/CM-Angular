@@ -14,4 +14,8 @@ export class InfoService {
     return this.http.get<any>(this.apiURL + '/paymentMethods', this.headers);
   }
 
+  getCountries() {
+    return this.http.get<any>(this.apiURL + '/countries', this.headers);
+  }
+
 }

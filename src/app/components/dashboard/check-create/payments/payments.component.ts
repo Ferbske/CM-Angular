@@ -21,7 +21,6 @@ export class PaymentsComponent implements OnInit {
     this.infoService.getPaymentMethods()
       .subscribe((response) => {
           this.paymentMethods = response.paymentMethods;
-          console.log(this.paymentMethods);
         },
         (error) => {
           console.log(error);

@@ -14,6 +14,7 @@
 
   <div class="form-input">
     <select id="pay" class="form-control">
+      <option value="all">All</option>
       <option *ngFor="let method of paymentMethods" [value]="method.PaymentMethod">{{method.PaymentMethod}}</option>
     </select>
     <label for="pay">Payment method</label>
