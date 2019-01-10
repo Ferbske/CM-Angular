@@ -33,6 +33,10 @@ export class CheckService {
       );
   }
 
+  getPaymentChecks() {
+    return this.http.get<any>(this.apiURL + '/paymentchecks', this.headers);
+  }
+
   // // get Check from mongo
   // getChecks() {
   //   const headers = this.createAuthorizationHeader();

@@ -6,10 +6,9 @@
     </div>
   </div>
   <!--TODO: change route so it has a real id-->
-  <div class="list-group-content row">
+  <div class="list-group-content row" *ngFor="let check of paymentChecks">
     <div class="table-column text-nowrap text-truncate col-10" routerLink="/check/id">
-      <strong>The total amount of money of the orders is above 10000,00 euros within 72 hours
-        and the payment method is IDeal</strong>
+      <strong>{{check.name}}</strong>
     </div>
     <div class="table-column icon">
       <a class="editLink"><span class="cm-icon cm-icon-edit" aria-hidden="true">Edit |</span></a>
@@ -18,15 +17,5 @@
       <app-delete-modal></app-delete-modal>
     </div>
   </div>
-  <div class="list-group-content row">
-    <div class="table-column text-nowrap text-truncate col-10" routerLink="/check/id">
-      <strong>The total amount of money of the orders is above 15000,00 euros within 65 hours</strong>
-    </div>
-    <div class="table-column icon">
-      <a class="editLink"><span class="cm-icon cm-icon-edit" aria-hidden="true">Edit |</span></a>
-    </div>
-    <div class="table-column icon">
-      <app-delete-modal></app-delete-modal>
-    </div>
-  </div>
+
 </div>
