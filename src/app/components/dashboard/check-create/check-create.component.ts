@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./check-create.component.css']
 })
 export class CheckCreateComponent implements OnInit {
+  value = 'Payments';
 
   constructor() { }
 

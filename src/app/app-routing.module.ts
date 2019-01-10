@@ -7,12 +7,17 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {AuthGuardService} from './components/auth/auth-guard.service';
 import {CheckDetailComponent} from './components/dashboard/check-detail/check-detail.component';
 import {OrderDetailComponent} from './components/dashboard/order-detail/order-detail.component';
+import {CheckCreateComponent} from './components/dashboard/check-create/check-create.component';
+import {ResolvePaymentMethodService} from './services/resolve.paymentMethod.service';
+import {ResolveCountriesService} from './services/resolve.countries.service';
+import {ResolveCategoriesService} from './services/resolve.categories.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
+  { path: 'check', component: CheckCreateComponent, canActivate: [AuthGuardService], resolve: {paymentMethod: ResolvePaymentMethodService, countries: ResolveCountriesService, categories: ResolveCategoriesService}},
   { path: 'check/id', component: CheckDetailComponent, canActivate: [AuthGuardService] },
   { path: 'order/id', component: OrderDetailComponent, canActivate: [AuthGuardService] }
 ];
