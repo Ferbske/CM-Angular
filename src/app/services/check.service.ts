@@ -23,6 +23,16 @@ export class CheckService {
       );
   }
 
+  createMerchantCheck(countries: Array<String>, category: String) {
+    this.http.post<any>(this.apiURL + '/merchantchecks', {countries, category}, this.headers)
+      .subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => console.log(error)
+      );
+  }
+
   // // get Check from mongo
   // getChecks() {
   //   const headers = this.createAuthorizationHeader();

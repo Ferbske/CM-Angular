@@ -18,8 +18,6 @@ export class MerchantsComponent implements OnInit {
   merchantCategories: MerchantCategory[];
 
   constructor(private infoService: InfoService, private checkService: CheckService, private route: ActivatedRoute, private router: Router) {
-    // this.getCountries();
-    // this.getMerchantCategories();
   }
 
   ngOnInit() {
@@ -39,6 +37,7 @@ export class MerchantsComponent implements OnInit {
   }
 
   onCreate() {
-    console.log(this.createCheckForm.value.country);
+    this.checkService.createMerchantCheck(this.createCheckForm.value.country, this.createCheckForm.value.category);
+    this.router.navigate(['/dashboard']);
   }
 }
