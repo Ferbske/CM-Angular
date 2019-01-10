@@ -5,13 +5,23 @@
       <div class="subheading-01">Check</div>
     </div>
   </div>
+
   <!--TODO: change route so it has a real id-->
-  <div class="list-group-content row" *ngFor="let check of paymentChecks">
+  <div class="list-group-content row" *ngFor="let paymentCheck of paymentChecks">
     <div class="table-column text-nowrap text-truncate col-11" routerLink="/check/id">
-      <strong>{{check.name}}</strong>
+      <strong>{{paymentCheck.name}}</strong>
     </div>
     <div class="table-column icon">
-      <app-delete-modal [checkId]="check._id"></app-delete-modal>
+      <app-delete-modal [check]="paymentCheck"></app-delete-modal>
+    </div>
+  </div>
+
+  <div class="list-group-content row" *ngFor="let merchantCheck of merchantChecks">
+    <div class="table-column text-nowrap text-truncate col-11" routerLink="/check/id">
+      <strong>{{merchantCheck.name}}</strong>
+    </div>
+    <div class="table-column icon">
+      <app-delete-modal [check]="merchantCheck"></app-delete-modal>
     </div>
   </div>
 

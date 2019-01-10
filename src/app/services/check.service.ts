@@ -11,7 +11,7 @@ export class CheckService {
   private headers = {headers: {'X-Access-Token': localStorage.getItem('Token')}};
 
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient) { }
 
   createPaymentCheck(amount: string, currency: string, time: number, paymentMethod: string) {
     this.http.post<any>(this.apiURL + '/paymentchecks', {amount, currency, time, paymentMethod}, this.headers)
@@ -23,7 +23,7 @@ export class CheckService {
       );
   }
 
-  createMerchantCheck(countries: Array<string>, category: string) {
+  createMerchantCheck(countries: string[], category: string) {
     this.http.post<any>(this.apiURL + '/merchantchecks', {countries, category}, this.headers)
       .subscribe(
         (response) => {
@@ -39,6 +39,14 @@ export class CheckService {
 
   deletePaymentCheck(checkId: string) {
     return this.http.delete(this.apiURL + '/paymentchecks/' + checkId, this.headers);
+  }
+
+  getMerchantChecks() {
+    return this.http.get<any>(this.apiURL + '/merchantchecks', this.headers);
+  }
+
+  deleteMerchantCheck(checkId: string) {
+    return this.http.delete(this.apiURL + '/merchantchecks/' + checkId, this.headers);
   }
 
   // // get Check from mongo

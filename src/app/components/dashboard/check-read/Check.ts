@@ -1,5 +1,6 @@
 interface Check {
-  name: String;
-  _id: String;
-  createdOn: String;
+  name: string;
+  _id: string;
+  createdOn: string;
+  type: string;
 }

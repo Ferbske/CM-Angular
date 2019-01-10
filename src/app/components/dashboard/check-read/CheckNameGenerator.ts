@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class CheckNameGenerator {
-    generatePaymentCheckName(amount: number, currency: String, time: number, paymentMethod: String) {
-        let name: String;
+    generatePaymentCheckName(amount: number, currency: string, time: number, paymentMethod: string) {
+        let name: string;
 
         name = 'The total amount of the orders is above ' + amount.toString() + ' ' + currency + ' within ' + time + ' hours' + ' and the payment method is ' + paymentMethod;
 
@@ -20,5 +20,21 @@ export class CheckNameGenerator {
         }
 
         return name;
+    }
+
+    generateMerchantCheckName(countries: string[], category: string) {
+      let name: string;
+
+      name = 'The merchant is from ' + countries.toString() + ' and has the ' + category + ' category';
+
+      if (countries === null || countries[0] === 'all' || countries === undefined) {
+        name = 'The merchant has the ' + category + ' category';
+      }
+
+      if (category === null || category === 'all' || category === undefined) {
+        name = 'The merchant is from ' + countries.toString();
+      }
+
+      return name;
     }
 }

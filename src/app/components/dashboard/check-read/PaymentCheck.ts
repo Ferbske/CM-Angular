@@ -1,15 +1,14 @@
-import {CheckNameGenerator} from './CheckNameGenerator';
-
 export class PaymentCheck implements Check {
-  _id: String;
-  createdOn: String;
-  name: String;
+  _id: string;
+  createdOn: string;
+  name: string;
+  type: string;
   amount: number;
-  currency: String;
-  paymentMethod: String;
+  currency: string;
+  paymentMethod: string;
   time: number;
 
-  constructor(_id: String, createdOn: String, name: String, amount: number, currency: String, paymentMethod: String, time: number, private checkNameGenerator: CheckNameGenerator) {
+  constructor(_id: string, createdOn: string, name: string, amount: number, currency: string, paymentMethod: string, time: number) {
     this._id = _id;
     this.createdOn = createdOn;
     this.name = name;
