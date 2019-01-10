@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Component, Input, OnInit} from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {CheckService} from '../../../services/check.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-delete-modal',
@@ -7,30 +9,36 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./delete-modal.component.css']
 })
 export class DeleteModalComponent implements OnInit {
-  closeResult: string;
+  @Input() check: Check;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private checkService: CheckService, private location: Location) {
   }
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', backdrop: false}).result.then((result) => {
-      // TODO: remove closeResult and getDismissReason method.
-      // TODO: here you write the api delete statement
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      // TODO: remove the closeResult.
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
+      console.log(this.check.type);
+      if (this.check.type === 'payment') {
+          this.checkService.deletePaymentCheck(this.check._id)
+            .subscribe(
+              (response) => {
+                console.log(response);
+                location.reload();
+              },
+              (error) => console.log(error)
+            );
+        }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+      if (this.check.type === 'merchant') {
+          this.checkService.deleteMerchantCheck(this.check._id)
+            .subscribe(
+              (response) => {
+                console.log(response);
+                location.reload();
+              },
+              (error) => console.log(error)
+            );
+        }
+    });
   }
 
   ngOnInit() {
