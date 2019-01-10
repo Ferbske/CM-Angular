@@ -18,7 +18,6 @@ export class CheckReadComponent implements OnInit {
     this.checkService.getPaymentChecks()
       .subscribe(
         (response) => {
-          console.log(response.message);
           this.paymentChecks = response.message;
 
           for (let check of this.paymentChecks) {

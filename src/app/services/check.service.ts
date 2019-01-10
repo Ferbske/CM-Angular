@@ -13,7 +13,7 @@ export class CheckService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  createPaymentCheck(amount: String, currency: String, time: Number, paymentMethod: String) {
+  createPaymentCheck(amount: string, currency: string, time: number, paymentMethod: string) {
     this.http.post<any>(this.apiURL + '/paymentchecks', {amount, currency, time, paymentMethod}, this.headers)
       .subscribe(
         (response) => {
@@ -23,7 +23,7 @@ export class CheckService {
       );
   }
 
-  createMerchantCheck(countries: Array<String>, category: String) {
+  createMerchantCheck(countries: Array<string>, category: string) {
     this.http.post<any>(this.apiURL + '/merchantchecks', {countries, category}, this.headers)
       .subscribe(
         (response) => {
@@ -35,6 +35,10 @@ export class CheckService {
 
   getPaymentChecks() {
     return this.http.get<any>(this.apiURL + '/paymentchecks', this.headers);
+  }
+
+  deletePaymentCheck(checkId: string) {
+    return this.http.delete(this.apiURL + '/paymentchecks/' + checkId, this.headers);
   }
 
   // // get Check from mongo

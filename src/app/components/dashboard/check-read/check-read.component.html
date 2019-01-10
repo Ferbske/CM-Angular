@@ -7,14 +7,11 @@
   </div>
   <!--TODO: change route so it has a real id-->
   <div class="list-group-content row" *ngFor="let check of paymentChecks">
-    <div class="table-column text-nowrap text-truncate col-10" routerLink="/check/id">
+    <div class="table-column text-nowrap text-truncate col-11" routerLink="/check/id">
       <strong>{{check.name}}</strong>
     </div>
     <div class="table-column icon">
-      <a class="editLink"><span class="cm-icon cm-icon-edit" aria-hidden="true">Edit |</span></a>
-    </div>
-    <div class="table-column icon">
-      <app-delete-modal></app-delete-modal>
+      <app-delete-modal [checkId]="check._id"></app-delete-modal>
     </div>
   </div>
 
