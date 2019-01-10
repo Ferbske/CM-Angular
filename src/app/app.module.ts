@@ -20,6 +20,9 @@ import { PaymentsComponent } from './components/dashboard/check-create/payments/
 import { MerchantsComponent } from './components/dashboard/check-create/merchants/merchants.component';
 import {InfoService} from './services/info.service';
 import {HttpClientModule} from '@angular/common/http';
+import {ResolvePaymentMethodService} from './services/resolve.paymentMethod.service';
+import {ResolveCountriesService} from './services/resolve.countries.service';
+import {ResolveCategoriesService} from './services/resolve.categories.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     NgbModule,
   ],
-  providers: [AuthService, AuthGuardService, InfoService],
+  providers: [AuthService, AuthGuardService, InfoService, ResolvePaymentMethodService, ResolveCountriesService, ResolveCategoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

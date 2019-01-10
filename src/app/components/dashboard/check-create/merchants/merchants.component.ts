@@ -4,6 +4,7 @@ import {Country} from './Country';
 import {MerchantCategory} from './MerchantCategory';
 import {NgForm} from '@angular/forms';
 import {CheckService} from '../../../../services/check.service';
+import {ActivatedRoute, Data, Router} from '@angular/router';
 
 
 @Component({
@@ -16,32 +17,23 @@ export class MerchantsComponent implements OnInit {
   countries: Country[];
   merchantCategories: MerchantCategory[];
 
-  constructor(private infoService: InfoService, private checkService: CheckService) {
-    this.getCountries();
-    this.getMerchantCategories();
+  constructor(private infoService: InfoService, private checkService: CheckService, private route: ActivatedRoute, private router: Router) {
+    // this.getCountries();
+    // this.getMerchantCategories();
   }
 
   ngOnInit() {
-  }
-
-  getCountries() {
-    this.infoService.getCountries()
-      .subscribe((response) => {
-          this.countries = response.countries;
-        },
-        (error) => {
-          console.log(error);
+    this.route.data
+      .subscribe(
+        (data: Data) => {
+          this.countries = data['countries'].items;
         }
       );
-  }
 
-  getMerchantCategories() {
-    this.infoService.getMerchantCategories()
-      .subscribe((response) => {
-          this.merchantCategories = response.merchantCategories;
-        },
-        (error) => {
-          console.log(error);
+    this.route.data
+      .subscribe(
+        (data: Data) => {
+          this.merchantCategories = data['categories'].items;
         }
       );
   }

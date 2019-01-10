@@ -3,21 +3,20 @@
 <form (ngSubmit)="onCreate()" #f="ngForm">
 <div class="form-group col-4">
   <div class="form-input">
-    <input type="amount" id="amount" name="amount" class="form-control" #amount="ngModel" ngModel required>
+    <input type="number" id="amount" name="amount" class="form-control" #amount="ngModel" ngModel required min=0>
     <label for="amount">Amount</label>
   </div>
-
   <div class="form-input">
     <input type="number" id="time" name="time" class="form-control" #time="ngModel" ngModel required>
     <label for="time">Time in hours</label>
   </div>
 
   <div class="form-input">
-    <select id="pay" class="form-control" name="pay" ngModel="all" #paymentMethod="ngModel">
+    <select id="paymentMethod" class="form-control" name="paymentMethod" ngModel="all" #paymentMethod="ngModel">
       <option value="all">All</option>
       <option *ngFor="let method of paymentMethods" [value]="method.PaymentMethod">{{method.PaymentMethod}}</option>
     </select>
-    <label for="pay">Payment method</label>
+    <label for="paymentMethod">Payment method</label>
   </div>
 </div>
   <button class="btn btn-primary float-right" routerLink="/dashboard"><span class="cm-icon cm-icon-error" aria-hidden="true"> Cancel</span></button>
