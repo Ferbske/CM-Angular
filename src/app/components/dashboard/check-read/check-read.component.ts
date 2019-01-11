@@ -20,7 +20,7 @@ export class CheckReadComponent implements OnInit {
     this.checkService.getPaymentChecks()
       .subscribe(
         (response) => {
-          this.paymentChecks = response.message;
+          this.paymentChecks = response.paymentChecks;
 
           for (let check of this.paymentChecks) {
             check.name = this.checkNameGenerator.generatePaymentCheckName(check.amount, check.currency, check.time, check.paymentMethod);
