@@ -15,7 +15,7 @@
             </div>
             <div class="form-input">
               <input type="username" id="username" name="username" ngModel class="form-control" required
-                     #username="ngModel">
+                     #username="ngModel" minlength="2">
               <label for="username">Username</label>
             </div>
             <div class="form-input-validation">
@@ -35,7 +35,7 @@
             </div>
           </div>
           <div>
-            <p class="alertText bigText" *ngIf="errorcode == 409">Please enter the right credentials</p>
+            <p class="alertText bigText" *ngIf="errorcode == 409">The username is already in use.</p>
           </div>
           <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign up</button>
           <p class="bigText"><br/>Already have an account? Please <a routerLink="/signin"> sign in</a>.</p>

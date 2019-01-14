@@ -8,8 +8,11 @@
 
   <!--TODO: change route so it has a real id-->
   <div class="list-group-content row" *ngFor="let paymentCheck of paymentChecks">
-    <div class="table-column text-nowrap text-truncate col-11" routerLink="/check/id">
+    <div class="table-column text-nowrap text-truncate col-10" routerLink="/alert/{{paymentCheck._id}}">
       <strong>{{paymentCheck.name}}</strong>
+    </div>
+    <div class="table-column icon">
+      <span class="cm-icon cm-icon-edit editLink" aria-hidden="true" routerLink="/check/{{paymentCheck._id}}"> Edit | </span>
     </div>
     <div class="table-column icon">
       <app-delete-modal [check]="paymentCheck"></app-delete-modal>
@@ -17,8 +20,11 @@
   </div>
 
   <div class="list-group-content row" *ngFor="let merchantCheck of merchantChecks">
-    <div class="table-column text-nowrap text-truncate col-11" routerLink="/check/id">
+    <div class="table-column text-nowrap text-truncate col-10" routerLink="/alert/{{merchantCheck._id}}">
       <strong>{{merchantCheck.name}}</strong>
+    </div>
+    <div class="table-column icon">
+      <span class="cm-icon cm-icon-edit editLink" aria-hidden="true" routerLink="/check/{{merchantCheck._id}}"> Edit | </span>
     </div>
     <div class="table-column icon">
       <app-delete-modal [check]="merchantCheck"></app-delete-modal>

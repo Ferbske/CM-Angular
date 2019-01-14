@@ -19,8 +19,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'check', component: CheckCreateComponent, canActivate: [AuthGuardService], resolve: {paymentMethod: ResolvePaymentMethodService, countries: ResolveCountriesService, categories: ResolveCategoriesService, currencies: ResolveCurrenciesService}},
-  { path: 'check/id', component: CheckDetailComponent, canActivate: [AuthGuardService] },
-  { path: 'order/id', component: OrderDetailComponent, canActivate: [AuthGuardService] }
+  { path: 'check/:id', component: CheckCreateComponent, canActivate: [AuthGuardService], resolve: {paymentMethod: ResolvePaymentMethodService, countries: ResolveCountriesService, categories: ResolveCategoriesService, currencies: ResolveCurrenciesService}},
+  { path: 'alert/:id', component: CheckDetailComponent, canActivate: [AuthGuardService] },
+  { path: 'order/:id', component: OrderDetailComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({
