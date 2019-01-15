@@ -11,15 +11,17 @@ import {CheckCreateComponent} from './components/dashboard/check-create/check-cr
 import {ResolvePaymentMethodService} from './services/resolve.paymentMethod.service';
 import {ResolveCountriesService} from './services/resolve.countries.service';
 import {ResolveCategoriesService} from './services/resolve.categories.service';
+import {ResolveCurrenciesService} from './services/resolve.currencies.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
-  { path: 'check', component: CheckCreateComponent, canActivate: [AuthGuardService], resolve: {paymentMethod: ResolvePaymentMethodService, countries: ResolveCountriesService, categories: ResolveCategoriesService}},
-  { path: 'check/id', component: CheckDetailComponent, canActivate: [AuthGuardService] },
-  { path: 'order/id', component: OrderDetailComponent, canActivate: [AuthGuardService] }
+  { path: 'check', component: CheckCreateComponent, canActivate: [AuthGuardService], resolve: {paymentMethod: ResolvePaymentMethodService, countries: ResolveCountriesService, categories: ResolveCategoriesService, currencies: ResolveCurrenciesService}},
+  { path: 'check/:id', component: CheckCreateComponent, canActivate: [AuthGuardService], resolve: {paymentMethod: ResolvePaymentMethodService, countries: ResolveCountriesService, categories: ResolveCategoriesService, currencies: ResolveCurrenciesService}},
+  { path: 'alert/:id', component: CheckDetailComponent, canActivate: [AuthGuardService] },
+  { path: 'order/:id', component: OrderDetailComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({

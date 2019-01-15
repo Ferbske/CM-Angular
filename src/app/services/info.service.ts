@@ -21,4 +21,8 @@ export class InfoService {
   getMerchantCategories() {
     return this.http.get<any>(this.apiURL + '/merchantCategories', this.headers);
   }
+
+  getCurrencies() {
+    return this.http.get<any>(this.apiURL + '/currencies', this.headers);
+  }
 }

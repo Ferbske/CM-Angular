@@ -1,25 +1,40 @@
 <p>
-  You can add multiple countries on which the merchant has to be from or could be from. You can also specify on which merchant category the check triggers.
+  You can add multiple countries on which the merchant has to be from or could be from. You can also specify on which
+  merchant category the check triggers.
 </p>
 
 <form (ngSubmit)="onCreate()" #f="ngForm">
-  <div class="form-group col-4">
-    <div class="form-input">
-      <select id="countries" class="form-control" name="country" ngModel="all" #country="ngModel">
-        <option value="all">All</option>
-        <option *ngFor="let country of countries" [value]="country.Name">{{country.Name}}</option>
-      </select>
-      <label for="countries">Countries</label>
+  <div class="form-group">
+    <div class="form-row">
+      <div class="form-input col-12">
+        <input type="text" id="name" name="name" [(ngModel)]="checkNameValue" class="form-control" required>
+        <label for="name">Check Name</label>
+      </div>
     </div>
-    <div class="form-input">
-      <select id="category" class="form-control" name="category" ngModel="all" #category="ngModel">
-        <option value="all">All</option>
-        <option *ngFor="let category of merchantCategories" [value]="category.Description">{{category.Description}}</option>
-      </select>
-      <label for="category">Categories</label>
+    <div class="form-row">
+      <div class="form-input col-4">
+        <select id="countries" class="form-control" name="country" ngModel="{{countryValue}}" #country="ngModel">
+          <option value="all">All</option>
+          <option *ngFor="let country of countries" [value]="country.Name">{{country.Name}}</option>
+        </select>
+        <label for="countries">Countries</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-input col-4">
+        <select id="category" class="form-control" name="category" ngModel="{{categoryValue}}" #category="ngModel">
+          <option value="all">All</option>
+          <option *ngFor="let category of merchantCategories"
+                  [value]="category.Description">{{category.Description}}</option>
+        </select>
+        <label for="category">Categories</label>
+      </div>
     </div>
   </div>
-  <button class="btn btn-primary float-right" routerLink="/dashboard"><span class="cm-icon cm-icon-error" aria-hidden="true"> Cancel</span></button>
-  <button class="btn btn-primary float-right" type="submit" [disabled]="!f.valid"><span class="cm-icon cm-icon-save" aria-hidden="true"> Save</span></button>
+    <button class="btn btn-primary float-right" routerLink="/dashboard"><span class="cm-icon cm-icon-error"
+                                                                              aria-hidden="true"> Cancel</span></button>
+    <button class="btn btn-primary float-right" type="submit" [disabled]="!f.valid"><span class="cm-icon cm-icon-save"
+                                                                                          aria-hidden="true"> Save</span>
+    </button>
 </form>
 

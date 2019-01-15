@@ -1,9 +1,9 @@
 export class PaymentMethod {
-  public PaymentMethod: String;
-  public IsPrepaid: Boolean;
-  public IsCreditCard: Boolean;
+  public PaymentMethod: string;
+  public IsPrepaid: boolean;
+  public IsCreditCard: boolean;
 
-  constructor(PaymentMethod: String, IsPrepaid: Boolean, IsCreditCard: Boolean) {
+  constructor(PaymentMethod: string, IsPrepaid: boolean, IsCreditCard: boolean) {
     this.PaymentMethod = PaymentMethod;
     this.IsPrepaid = IsPrepaid;
     this.IsCreditCard = IsCreditCard;

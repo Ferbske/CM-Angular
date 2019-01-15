@@ -23,6 +23,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ResolvePaymentMethodService} from './services/resolve.paymentMethod.service';
 import {ResolveCountriesService} from './services/resolve.countries.service';
 import {ResolveCategoriesService} from './services/resolve.categories.service';
+import {ResolveCurrenciesService} from './services/resolve.currencies.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import {ResolveCategoriesService} from './services/resolve.categories.service';
     HttpClientModule,
     NgbModule,
   ],
-  providers: [AuthService, AuthGuardService, InfoService, ResolvePaymentMethodService, ResolveCountriesService, ResolveCategoriesService],
+  providers: [AuthService, AuthGuardService, InfoService, ResolvePaymentMethodService, ResolveCountriesService, ResolveCategoriesService, ResolveCurrenciesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

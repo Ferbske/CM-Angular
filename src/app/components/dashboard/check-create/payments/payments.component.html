@@ -1,24 +1,50 @@
-<p>The time in hours will add up all the amounts of the orders made between those hours. The check will trigger when the total amount is greater than the amount in euros specified below.</p>
+<p>The time in hours will add up all the amounts of the orders made between those hours. The check will trigger when the
+  total amount is greater than the amount in euros specified below.</p>
 
 <form (ngSubmit)="onCreate()" #f="ngForm">
-<div class="form-group col-4">
-  <div class="form-input">
-    <input type="number" id="amount" name="amount" class="form-control" #amount="ngModel" ngModel required min=0>
-    <label for="amount">Amount</label>
+  <div class="form-group">
+    <div class="form-row">
+      <div class="form-input col-12">
+        <input type="text" id="name" name="name" [(ngModel)]="checkNameValue" class="form-control" required>
+        <label for="name">Check Name</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-input col-4">
+        <input type="number" id="amount" name="amount" [(ngModel)]="amountValue" class="form-control" required min=0>
+        <label for="amount">Amount</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-input col-4">
+        <select id="currency" class="form-control" name="currency" ngModel="{{currencyValue}}" #currency="ngModel"
+                required>
+          <option value="PleaseSelect">Please select a currency</option>
+          <option *ngFor="let currency of currencies" [value]="currency.Description">{{currency.Description}}</option>
+        </select>
+        <label for="currency">Currency</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-input col-4">
+        <input type="number" id="time" name="time" [(ngModel)]="timeValue" class="form-control" required>
+        <label for="time">Time in hours</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-input col-4">
+        <select id="paymentMethod" class="form-control" name="paymentMethod" ngModel="{{paymentMethodValue}}"
+                #paymentMethod="ngModel">
+          <option value="all">All</option>
+          <option *ngFor="let method of paymentMethods" [value]="method.PaymentMethod">{{method.PaymentMethod}}</option>
+        </select>
+        <label for="paymentMethod">Payment method</label>
+      </div>
+    </div>
   </div>
-  <div class="form-input">
-    <input type="number" id="time" name="time" class="form-control" #time="ngModel" ngModel required>
-    <label for="time">Time in hours</label>
-  </div>
-
-  <div class="form-input">
-    <select id="paymentMethod" class="form-control" name="paymentMethod" ngModel="all" #paymentMethod="ngModel">
-      <option value="all">All</option>
-      <option *ngFor="let method of paymentMethods" [value]="method.PaymentMethod">{{method.PaymentMethod}}</option>
-    </select>
-    <label for="paymentMethod">Payment method</label>
-  </div>
-</div>
-  <button class="btn btn-primary float-right" routerLink="/dashboard"><span class="cm-icon cm-icon-error" aria-hidden="true"> Cancel</span></button>
-  <button class="btn btn-primary float-right" type="submit" [disabled]="!f.valid"><span class="cm-icon cm-icon-save" aria-hidden="true"> Save</span></button>
+  <button class="btn btn-primary float-right" routerLink="/dashboard"><span class="cm-icon cm-icon-error"
+                                                                            aria-hidden="true"> Cancel</span></button>
+  <button class="btn btn-primary float-right" type="submit" [disabled]="!f.valid"><span class="cm-icon cm-icon-save"
+                                                                                        aria-hidden="true"> Save</span>
+  </button>
 </form>

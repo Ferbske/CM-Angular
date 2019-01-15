@@ -1,26 +1,39 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {InfoService} from '../../../../services/info.service';
 import {Country} from './Country';
 import {MerchantCategory} from './MerchantCategory';
 import {NgForm} from '@angular/forms';
 import {CheckService} from '../../../../services/check.service';
 import {ActivatedRoute, Data, Router} from '@angular/router';
+import {MerchantCheck} from '../../check-read/MerchantCheck';
+import {CheckNameGenerator} from '../../check-read/CheckNameGenerator';
 
 
 @Component({
   selector: 'app-merchants',
   templateUrl: './merchants.component.html',
-  styleUrls: ['./merchants.component.css']
+  styleUrls: ['./merchants.component.css'],
+  providers: [CheckNameGenerator]
 })
 export class MerchantsComponent implements OnInit {
+  @Input() check: MerchantCheck;
   @ViewChild('f') createCheckForm: NgForm;
   countries: Country[];
   merchantCategories: MerchantCategory[];
+  countryValue = 'all';
+  categoryValue = 'all';
+  checkNameValue = '';
 
-  constructor(private infoService: InfoService, private checkService: CheckService, private route: ActivatedRoute, private router: Router) {
+  constructor(private infoService: InfoService, private checkService: CheckService, private route: ActivatedRoute, private router: Router, private checkNameGenerator: CheckNameGenerator) {
   }
 
   ngOnInit() {
+    if (this.check !== undefined) {
+      this.countryValue = this.check.countries[0];
+      this.categoryValue = this.check.category;
+      this.checkNameValue = this.check.checkName;
+    }
+
     this.route.data
       .subscribe(
         (data: Data) => {
@@ -37,7 +50,7 @@ export class MerchantsComponent implements OnInit {
   }
 
   onCreate() {
-    this.checkService.createMerchantCheck(this.createCheckForm.value.country, this.createCheckForm.value.category);
+    this.checkService.createMerchantCheck(this.createCheckForm.value.country, this.createCheckForm.value.category, this.checkNameGenerator.generateMerchantCheckName(this.createCheckForm.value.country, this.createCheckForm.value.category));
     this.router.navigate(['/dashboard']);
   }
 }

@@ -5,8 +5,6 @@ export class CheckNameGenerator {
     generatePaymentCheckName(amount: string, currency: string, time: number, paymentMethod: string) {
         let name: string;
 
-        console.log(amount);
-
         name = 'The total amount of the orders is above ' + amount + ' ' + currency + ' within ' + time + ' hours' + ' and the payment method is ' + paymentMethod;
 
         if (paymentMethod === null || paymentMethod === 'all' || paymentMethod === undefined) {
