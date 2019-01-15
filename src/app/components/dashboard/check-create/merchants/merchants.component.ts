@@ -28,8 +28,6 @@ export class MerchantsComponent implements OnInit {
     if (!(this.check === undefined)) {
       this.countryValue = this.check.countries[0];
       this.categoryValue = this.check.category;
-
-      console.log(this.countryValue + ' ' + this.categoryValue);
     }
 
     this.route.data

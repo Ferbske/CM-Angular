@@ -3,24 +3,24 @@
 <form (ngSubmit)="onCreate()" #f="ngForm">
 <div class="form-group col-4">
   <div class="form-input">
-    <input type="number" id="amount" name="amount" class="form-control" #amount="ngModel" ngModel required min=0>
+    <input type="number" id="amount" name="amount" [(ngModel)]="amountValue" class="form-control" required min=0>
     <label for="amount">Amount</label>
   </div>
 
   <div class="form-input">
-    <select id="currency" class="form-control" name="currency" ngModel="PleaseSelect" #currency="ngModel" required>
+    <select id="currency" class="form-control" name="currency" ngModel="{{currencyValue}}" #currency="ngModel" required>
       <option value="PleaseSelect">Please select a currency</option>
       <option *ngFor="let currency of currencies" [value]="currency.Description">{{currency.Description}}</option>
     </select>
     <label for="currency">Currency</label>
   </div>
   <div class="form-input">
-    <input type="number" id="time" name="time" class="form-control" #time="ngModel" ngModel required>
+    <input type="number" id="time" name="time" [(ngModel)]="timeValue" class="form-control"  ngModel required>
     <label for="time">Time in hours</label>
   </div>
 
   <div class="form-input">
-    <select id="paymentMethod" class="form-control" name="paymentMethod" ngModel="all" #paymentMethod="ngModel">
+    <select id="paymentMethod" class="form-control" name="paymentMethod" ngModel="{{paymentMethodValue}}" #paymentMethod="ngModel">
       <option value="all">All</option>
       <option *ngFor="let method of paymentMethods" [value]="method.PaymentMethod">{{method.PaymentMethod}}</option>
     </select>

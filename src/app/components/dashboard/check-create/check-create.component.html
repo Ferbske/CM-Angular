@@ -41,7 +41,7 @@
         </form>
       <hr/>
 
-      <app-payments *ngIf="value == 'paymentCheck'" ></app-payments>
+      <app-payments *ngIf="value == 'paymentCheck'" [check]="check"></app-payments>
       <app-merchants *ngIf="value == 'merchantCheck'" [check]="check"></app-merchants>
 
     </div>
