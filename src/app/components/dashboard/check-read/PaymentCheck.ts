@@ -1,7 +1,7 @@
 export class PaymentCheck implements Check {
   _id: string;
   createdOn: string;
-  name: string;
+  checkName: string;
   type: string;
   amount: string;
   currency: string;
@@ -11,7 +11,7 @@ export class PaymentCheck implements Check {
   constructor(_id: string, createdOn: string, name: string, amount: string, currency: string, paymentMethod: string, time: number) {
     this._id = _id;
     this.createdOn = createdOn;
-    this.name = name;
+    this.checkName = name;
     this.amount = amount;
     this.currency = currency;
     this.paymentMethod = paymentMethod;

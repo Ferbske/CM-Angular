@@ -9,7 +9,7 @@
   <!--TODO: change route so it has a real id-->
   <div class="list-group-content row" *ngFor="let paymentCheck of paymentChecks">
     <div class="table-column text-nowrap text-truncate col-10" routerLink="/alert/{{paymentCheck._id}}">
-      <strong>{{paymentCheck.name}}</strong>
+      <strong>{{paymentCheck.checkName}}</strong>
     </div>
     <div class="table-column icon">
       <span class="cm-icon cm-icon-edit editLink" aria-hidden="true" routerLink="/check/{{paymentCheck._id}}"> Edit | </span>
@@ -21,7 +21,7 @@
 
   <div class="list-group-content row" *ngFor="let merchantCheck of merchantChecks">
     <div class="table-column text-nowrap text-truncate col-10" routerLink="/alert/{{merchantCheck._id}}">
-      <strong>{{merchantCheck.name}}</strong>
+      <strong>{{merchantCheck.checkName}}</strong>
     </div>
     <div class="table-column icon">
       <span class="cm-icon cm-icon-edit editLink" aria-hidden="true" routerLink="/check/{{merchantCheck._id}}"> Edit | </span>

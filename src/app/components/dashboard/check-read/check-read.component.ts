@@ -23,7 +23,6 @@ export class CheckReadComponent implements OnInit {
           this.paymentChecks = response.paymentChecks;
 
           for (let check of this.paymentChecks) {
-            check.name = this.checkNameGenerator.generatePaymentCheckName(check.amount, check.currency, check.time, check.paymentMethod);
             check.type = 'payment';
           }
         },
@@ -35,8 +34,8 @@ export class CheckReadComponent implements OnInit {
         (response) => {
           this.merchantChecks = response.message;
 
+
           for (let check of this.merchantChecks) {
-            check.name = this.checkNameGenerator.generateMerchantCheckName(check.countries, check.category);
             check.type = 'merchant';
           }
         },

@@ -6,12 +6,14 @@ import {NgForm} from '@angular/forms';
 import {CheckService} from '../../../../services/check.service';
 import {ActivatedRoute, Data, Router} from '@angular/router';
 import {MerchantCheck} from '../../check-read/MerchantCheck';
+import {CheckNameGenerator} from '../../check-read/CheckNameGenerator';
 
 
 @Component({
   selector: 'app-merchants',
   templateUrl: './merchants.component.html',
-  styleUrls: ['./merchants.component.css']
+  styleUrls: ['./merchants.component.css'],
+  providers: [CheckNameGenerator]
 })
 export class MerchantsComponent implements OnInit {
   @Input() check: MerchantCheck;
@@ -21,7 +23,7 @@ export class MerchantsComponent implements OnInit {
   countryValue = 'all';
   categoryValue = 'all';
 
-  constructor(private infoService: InfoService, private checkService: CheckService, private route: ActivatedRoute, private router: Router) {
+  constructor(private infoService: InfoService, private checkService: CheckService, private route: ActivatedRoute, private router: Router, private checkNameGenerator: CheckNameGenerator) {
   }
 
   ngOnInit() {
@@ -46,7 +48,7 @@ export class MerchantsComponent implements OnInit {
   }
 
   onCreate() {
-    this.checkService.createMerchantCheck(this.createCheckForm.value.countryValue, this.createCheckForm.value.categoryValue);
+    this.checkService.createMerchantCheck(this.createCheckForm.value.country, this.createCheckForm.value.category, this.checkNameGenerator.generateMerchantCheckName(this.createCheckForm.value.country, this.createCheckForm.value.category));
     this.router.navigate(['/dashboard']);
   }
 }

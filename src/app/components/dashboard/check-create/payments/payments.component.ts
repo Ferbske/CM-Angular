@@ -6,12 +6,14 @@ import {CheckService} from '../../../../services/check.service';
 import {ActivatedRoute, Router, Data} from '@angular/router';
 import {Currency} from './Currency';
 import {PaymentCheck} from '../../check-read/PaymentCheck';
+import {CheckNameGenerator} from '../../check-read/CheckNameGenerator';
 
 
 @Component({
   selector: 'app-payments',
   templateUrl: './payments.component.html',
-  styleUrls: ['./payments.component.css']
+  styleUrls: ['./payments.component.css'],
+  providers: [CheckNameGenerator]
 })
 export class PaymentsComponent implements OnInit {
   @Input() check: PaymentCheck;
@@ -20,21 +22,19 @@ export class PaymentsComponent implements OnInit {
   currencies: Currency[];
   currencyValue = 'PleaseSelect';
   paymentMethodValue = 'all';
-  amountValue;
+  amountValue = '10000';
   timeValue = 0;
 
-  constructor(private infoService: InfoService, private checkService: CheckService, private route: ActivatedRoute, private router: Router) {
+  constructor(private infoService: InfoService, private checkService: CheckService, private route: ActivatedRoute, private router: Router, private checkNameGenerator: CheckNameGenerator) {
 
   }
 
   ngOnInit() {
-    console.log(this.check);
     if (!(this.check === undefined)) {
       this.currencyValue = this.check.currency;
       this.amountValue = this.check.amount;
       this.timeValue = this.check.time;
       this.paymentMethodValue = this.check.paymentMethod;
-      console.log('amount: ' + this.amountValue + ', time: ' + this.timeValue);
     }
 
     this.route.data
@@ -53,8 +53,7 @@ export class PaymentsComponent implements OnInit {
   }
 
   onCreate() {
-    console.log("Amount: " + this.createCheckForm.value.amount + " Currency: " + this.createCheckForm.value.currency + " Time: " + this.createCheckForm.value.time + " Paymentmethod: " + this.createCheckForm.value.paymentMethod);
-    this.checkService.createPaymentCheck(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod);
+    this.checkService.createPaymentCheck(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod, this.checkNameGenerator.generatePaymentCheckName(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod));
     this.router.navigate(['/dashboard']);
   }
 
