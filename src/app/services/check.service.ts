@@ -33,6 +33,11 @@ export class CheckService {
       );
   }
 
+  getcheck(checkId: string) {
+    return this.http.get<any>(this.apiURL + '/checks/' + checkId , this.headers);
+
+  }
+
   getPaymentChecks() {
     return this.http.get<any>(this.apiURL + '/paymentchecks', this.headers);
   }

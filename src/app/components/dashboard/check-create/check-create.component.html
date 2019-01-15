@@ -15,15 +15,15 @@
           </div>
           <div class="form-row" *ngIf="status === 'update'">
             <div class="form-input col-12">
-              <input type="text" id="name" name="name" class="form-control" #name="ngModel" ngModel required min=0>
-              <label for="name">Name Check</label>
+              <input type="text" id="name" name="name" value="{{check._id}}" class="form-control" #name="ngModel" ngModel required min=0>
+              <label for="name">Check Name</label>
             </div>
           </div>
           <div class="form-row" *ngIf="status === 'create'">
             <div class="row">
               <div class="form-radio col-2">
                 <label>
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios" [(ngModel)]="value" value="payment"
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios" [(ngModel)]="value" value="paymentCheck"
                          checked>
                   <label class="form-check-label" for="exampleRadios">
                     Create payment check
@@ -31,7 +31,7 @@
                 </label>
               </div>
               <div class="form-radio col-2">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [(ngModel)]="value" value="merchant">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [(ngModel)]="value" value="merchantCheck">
                 <label class="form-check-label" for="exampleRadios2">
                    Create merchant check
                 </label>
@@ -41,8 +41,8 @@
         </form>
       <hr/>
 
-      <app-payments *ngIf="value == 'payment'"></app-payments>
-      <app-merchants *ngIf="value == 'merchant'"></app-merchants>
+      <app-payments *ngIf="value == 'paymentCheck'" ></app-payments>
+      <app-merchants *ngIf="value == 'merchantCheck'" [check]="check"></app-merchants>
 
     </div>
   </div>
