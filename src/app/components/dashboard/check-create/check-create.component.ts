@@ -9,13 +9,17 @@ import {CheckService} from '../../../services/check.service';
 })
 export class CheckCreateComponent implements OnInit {
   status: String = 'create';
-  value = 'paymentCheck';
-  check = undefined;
+  value = '';
+  check;
 
   constructor(private route: ActivatedRoute, private checkService: CheckService) {
-    let param = this.route.snapshot.params['id'];
 
-    if (!(param === undefined)) {
+  }
+
+  ngOnInit() {
+    const param = this.route.snapshot.params['id'];
+
+    if (param !== undefined) {
       this.status = 'update';
       this.checkService.getcheck(param)
         .subscribe(
@@ -26,9 +30,6 @@ export class CheckCreateComponent implements OnInit {
           (error) => console.log(error)
         );
     }
-  }
-
-  ngOnInit() {
   }
 
 }

@@ -24,17 +24,22 @@ export class PaymentsComponent implements OnInit {
   paymentMethodValue = 'all';
   amountValue = '10000';
   timeValue = 0;
+  checkNameValue = '';
 
   constructor(private infoService: InfoService, private checkService: CheckService, private route: ActivatedRoute, private router: Router, private checkNameGenerator: CheckNameGenerator) {
 
   }
 
   ngOnInit() {
-    if (!(this.check === undefined)) {
+    console.log('CHECK: ' + this.check);
+    if (this.check !== undefined) {
+      console.log(this.check);
+
       this.currencyValue = this.check.currency;
       this.amountValue = this.check.amount;
       this.timeValue = this.check.time;
       this.paymentMethodValue = this.check.paymentMethod;
+      this.checkNameValue = this.check.checkName;
     }
 
     this.route.data
@@ -53,7 +58,13 @@ export class PaymentsComponent implements OnInit {
   }
 
   onCreate() {
-    this.checkService.createPaymentCheck(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod, this.checkNameGenerator.generatePaymentCheckName(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod));
+    if (this.check === undefined) {
+      this.checkService.createPaymentCheck(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod, this.checkNameGenerator.generatePaymentCheckName(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod));
+    } else if (this.check !== undefined) {
+      console.log(this.check);
+      this.checkService.updatePaymentCheck(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod, this.createCheckForm.value.name, this.check._id);
+    };
+
     this.router.navigate(['/dashboard']);
   }
 

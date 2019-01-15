@@ -22,14 +22,16 @@ export class MerchantsComponent implements OnInit {
   merchantCategories: MerchantCategory[];
   countryValue = 'all';
   categoryValue = 'all';
+  checkNameValue = '';
 
   constructor(private infoService: InfoService, private checkService: CheckService, private route: ActivatedRoute, private router: Router, private checkNameGenerator: CheckNameGenerator) {
   }
 
   ngOnInit() {
-    if (!(this.check === undefined)) {
+    if (this.check !== undefined) {
       this.countryValue = this.check.countries[0];
       this.categoryValue = this.check.category;
+      this.checkNameValue = this.check.checkName;
     }
 
     this.route.data

@@ -13,12 +13,6 @@
               </label>
             </div>
           </div>
-          <div class="form-row" *ngIf="status === 'update'">
-            <div class="form-input col-12">
-              <input type="text" id="name" name="name" value="{{check.checkName}}" class="form-control" #name="ngModel" ngModel required min=0>
-              <label for="name">Check Name</label>
-            </div>
-          </div>
           <div class="form-row" *ngIf="status === 'create'">
             <div class="row">
               <div class="form-radio col-2">
