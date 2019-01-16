@@ -31,10 +31,7 @@ export class PaymentsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('CHECK: ' + this.check);
     if (this.check !== undefined) {
-      console.log(this.check);
-
       this.currencyValue = this.check.currency;
       this.amountValue = this.check.amount;
       this.timeValue = this.check.time;
@@ -61,11 +58,10 @@ export class PaymentsComponent implements OnInit {
     if (this.check === undefined) {
       this.checkService.createPaymentCheck(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod, this.checkNameGenerator.generatePaymentCheckName(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod));
     } else if (this.check !== undefined) {
-      console.log(this.check);
       this.checkService.updatePaymentCheck(this.createCheckForm.value.amount, this.createCheckForm.value.currency, this.createCheckForm.value.time, this.createCheckForm.value.paymentMethod, this.createCheckForm.value.name, this.check._id);
     };
 
-    this.router.navigate(['/dashboard']);
+    this.router.navigateByUrl('/check', {skipLocationChange: true}).then(() => this.router.navigate(['/dashboard']));
   }
 
 

@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {CheckService} from '../../../services/check.service';
 import {PaymentCheck} from './PaymentCheck';
-import {CheckNameGenerator} from './CheckNameGenerator';
 import {MerchantCheck} from './MerchantCheck';
 
 @Component({
   selector: 'app-check-read',
   templateUrl: './check-read.component.html',
-  styleUrls: ['./check-read.component.css'],
-  providers: [CheckNameGenerator]
+  styleUrls: ['./check-read.component.css']
 })
 export class CheckReadComponent implements OnInit {
   paymentChecks: PaymentCheck[];
   merchantChecks: MerchantCheck[];
 
-  constructor(private checkService: CheckService, private checkNameGenerator: CheckNameGenerator) { }
+  constructor(private checkService: CheckService) { }
 
   ngOnInit() {
     this.checkService.getPaymentChecks()
