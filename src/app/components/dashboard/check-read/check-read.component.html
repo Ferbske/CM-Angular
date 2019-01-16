@@ -1,0 +1,34 @@
+<!--TODO: add a for loop let check for checks. The checks array comes from a api call in a checkservicesclass-->
+<div class="list-group m-t-24 row">
+  <div class="list-group-header row">
+    <div class="col-10 col-sm-8 col-md-6 table-header">
+      <div class="subheading-01">Check</div>
+    </div>
+  </div>
+
+  <!--TODO: change route so it has a real id-->
+  <div class="list-group-content row" *ngFor="let paymentCheck of paymentChecks">
+    <div class="table-column text-nowrap text-truncate col-10" routerLink="/alert/{{paymentCheck._id}}">
+      <strong>{{paymentCheck.checkName}}</strong>
+    </div>
+    <div class="table-column icon">
+      <span class="cm-icon cm-icon-edit editLink" aria-hidden="true" routerLink="/check/{{paymentCheck._id}}"> Edit | </span>
+    </div>
+    <div class="table-column icon">
+      <app-delete-modal [check]="paymentCheck"></app-delete-modal>
+    </div>
+  </div>
+
+  <div class="list-group-content row" *ngFor="let merchantCheck of merchantChecks">
+    <div class="table-column text-nowrap text-truncate col-10" routerLink="/alert/{{merchantCheck._id}}">
+      <strong>{{merchantCheck.checkName}}</strong>
+    </div>
+    <div class="table-column icon">
+      <span class="cm-icon cm-icon-edit editLink" aria-hidden="true" routerLink="/check/{{merchantCheck._id}}"> Edit | </span>
+    </div>
+    <div class="table-column icon">
+      <app-delete-modal [check]="merchantCheck"></app-delete-modal>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-md shadow">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a routerLink="/dashboard" class="navbar-brand normalText"><b><img class="navbarLogo" src="../../assets/img/cm.png"/> Payment Monitor</b></a>
+    </div>
+    <ng-template [ngIf]="authService.isAuthenticated()">
+      <ul>
+        <li>
+          <a routerLink="/" (click)="authService.logout()"><span class="cm-icon cm-icon-user-fill" aria-hidden="true"> Log out</span></a>
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+</nav>

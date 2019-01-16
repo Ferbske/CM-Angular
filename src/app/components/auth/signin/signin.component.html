@@ -1,0 +1,38 @@
+<div class="row card-wrapper justify-content-md-center">
+  <div class="col-sm-12 col-md-6">
+    <div class="card-container">
+      <div class="card">
+        <form (ngSubmit)="onLogin()" #f="ngForm">
+          <div class="form-group">
+            <div class="form-input">
+              <input type="username" id="username" name="username" ngModel class="form-control" required
+                     #username="ngModel">
+              <label for="username">Username</label>
+
+            </div>
+            <div class="form-input-validation">
+              <div [ngClass]="{'form-input-error': true}" *ngIf="!username.valid && username.touched">Please enter a
+                valid username
+              </div>
+            </div>
+            <div class="form-input">
+              <input type="password" id="password" name="password" ngModel class="form-control" required
+                     #password="ngModel">
+              <label for="password">Password</label>
+            </div>
+            <div class="form-input-validation">
+              <div [ngClass]="{'form-input-error': true}" *ngIf="!password.valid && password.touched">Please enter your
+                password
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="alertText bigText" *ngIf="errorcode == 401">Please enter the right credentials<br/></p>
+          </div>
+          <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign in</button>
+          <p class="bigText"><br/>Don't have an account yet? Please <a routerLink="/signup"> sign up</a>.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
