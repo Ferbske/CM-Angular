@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class CheckNameGenerator {
-    generatePaymentCheckName(amount: string, currency: string, time: number, paymentMethod: string) {
+    generatePaymentCheckName(amount: number, currency: string, time: number, paymentMethod: string) {
         let name: string;
 
         name = 'The total amount of the orders is above ' + amount + ' ' + currency + ' within ' + time + ' hours' + ' and the payment method is ' + paymentMethod;
@@ -16,7 +16,7 @@ export class CheckNameGenerator {
         }
 
         if ((time === 0 || time === null) && (paymentMethod === null || paymentMethod === 'all' || paymentMethod === undefined)) {
-          name = 'The amount of the order is above ' +  amount.toString() + ' ' + currency;
+          name = 'The amount of the order is above ' +  amount + ' ' + currency;
         }
 
         return name;

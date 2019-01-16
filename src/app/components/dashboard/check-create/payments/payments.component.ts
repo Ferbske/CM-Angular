@@ -22,7 +22,7 @@ export class PaymentsComponent implements OnInit {
   currencies: Currency[];
   currencyValue = 'PleaseSelect';
   paymentMethodValue = 'all';
-  amountValue = '10000';
+  amountValue = 0;
   timeValue = 0;
   checkNameValue = '';
 
@@ -62,6 +62,20 @@ export class PaymentsComponent implements OnInit {
     };
 
     this.router.navigateByUrl('/check', {skipLocationChange: true}).then(() => this.router.navigate(['/dashboard']));
+  }
+
+  updateName(amount: number, currency: string, time: number, paymentMethod: string) {
+    if (amount !== null) {
+      this.amountValue = amount;
+    } else if (currency !== null) {
+      this.currencyValue = currency;
+    } else if (time !== null) {
+      this.timeValue = time;
+    } else if (paymentMethod !== null) {
+      this.paymentMethodValue = paymentMethod;
+    };
+
+    this.checkNameValue = this.checkNameGenerator.generatePaymentCheckName(this.amountValue, this.currencyValue, this.timeValue, this.paymentMethodValue);
   }
 
 
