@@ -1,8 +1,3 @@
-<p>
-  You can add multiple countries on which the merchant has to be from or could be from. You can also specify on which
-  merchant category the check triggers.
-</p>
-
 <form (ngSubmit)="onCreate()" #f="ngForm">
   <div class="form-group">
     <div class="form-row">
@@ -13,7 +8,7 @@
     </div>
     <div class="form-row">
       <div class="form-input col-4">
-        <select id="countries" class="form-control" name="country" ngModel="{{countryValue}}" #country="ngModel">
+        <select id="countries" class="form-control" name="country" ngModel="{{countryValue}}" #country="ngModel" (ngModelChange)="updateName(country.value, null)">
           <option value="all">All</option>
           <option *ngFor="let country of countries" [value]="country.Name">{{country.Name}}</option>
         </select>
@@ -22,7 +17,7 @@
     </div>
     <div class="form-row">
       <div class="form-input col-4">
-        <select id="category" class="form-control" name="category" ngModel="{{categoryValue}}" #category="ngModel">
+        <select id="category" class="form-control" name="category" ngModel="{{categoryValue}}" #category="ngModel" (ngModelChange)="updateName(null, category.value)">
           <option value="all">All</option>
           <option *ngFor="let category of merchantCategories"
                   [value]="category.Description">{{category.Description}}</option>
