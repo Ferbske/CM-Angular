@@ -29,6 +29,8 @@ export class CheckCreateComponent implements OnInit {
           },
           (error) => console.log(error)
         );
+    } else {
+      this.value = 'paymentCheck';
     }
   }
 

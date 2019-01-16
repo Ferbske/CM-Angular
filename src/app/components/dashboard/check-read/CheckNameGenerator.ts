@@ -19,7 +19,7 @@ export class CheckNameGenerator {
       name = 'The amount of the order is above ' + amount + ' ' + currency;
     }
 
-    if (amount === null || amount === undefined || amount === 0) {
+    if ((amount === null || amount === undefined || amount === 0) || (currency === null || currency === undefined || currency === 'PleaseSelect')) {
       name = undefined;
     }
 
