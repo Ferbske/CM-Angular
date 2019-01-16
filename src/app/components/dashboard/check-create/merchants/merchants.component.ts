@@ -50,7 +50,17 @@ export class MerchantsComponent implements OnInit {
   }
 
   onCreate() {
-    this.checkService.createMerchantCheck(this.createCheckForm.value.country, this.createCheckForm.value.category, this.checkNameGenerator.generateMerchantCheckName(this.createCheckForm.value.country, this.createCheckForm.value.category));
+    this.checkService.createMerchantCheck(this.createCheckForm.value.country, this.createCheckForm.value.category, this.createCheckForm.value.name);
     this.router.navigate(['/dashboard']);
+  }
+
+  updateName(country: string, category: string) {
+    if (country !== null) {
+      this.countryValue = country;
+    } else if (category !== null) {
+      this.categoryValue = category;
+    }
+
+    this.checkNameValue = this.checkNameGenerator.generateMerchantCheckName(this.countryValue, this.categoryValue);
   }
 }
