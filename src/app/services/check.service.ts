@@ -77,4 +77,8 @@ export class CheckService {
   getAlerts(checkId: string) {
     return this.http.get<any>(this.apiURL + '/alerts/' + checkId, this.headers);
   }
+
+  getOrder(orderId: string) {
+    return this.http.get<any>(this.apiURL + '/orders/' + orderId, this.headers);
+  }
 }

@@ -13,19 +13,19 @@
         <div class="col-6">
           <h2>Merchant details</h2>
           <div class="border">
-            <p>Name: ----------------------</p>
-            <p>Organization: --------------</p>
-            <p>Country: -------------------</p>
-            <p>City: ----------------------</p>
-            <p>Categories: ----------------</p>
+            <p>Name: {{order.Name}}</p>
+            <p>Organization: {{order.OrganizationID}}</p>
+            <p>Country: {{order.Country}}</p>
+            <p>City: {{order.City}}</p>
+            <p>Categories: {{order.MerchantCategoryCode}}</p>
           </div>
         </div>
         <div class="col-6">
           <h2>Buyer details</h2>
           <div class="border">
-            <p>Name: ----------------------</p>
-            <p>Billing country: -----------</p>
-            <p>Shipping country: ----------</p>
+            <p>Name: {{order.BuyerName}}</p>
+            <p>Billing country: {{order.BuyerBillingCountry}}</p>
+            <p>Shipping country: {{order.BuyerShippingCountry}}</p>
           </div>
         </div>
       </div>
@@ -33,14 +33,14 @@
       <h2>Order details</h2>
       <div class="row border">
         <div class="col-6">
-          <p>ID: ------------------------</p>
-          <p>Reference: -----------------</p>
-          <p>Description: ---------------</p>
+          <p>ID: {{order.ID}}</p>
+          <p>Reference: {{order.Reference}}</p>
+          <p>Description: {{order.Description}}</p>
         </div>
         <div class="col-6">
-          <p>Amount: --------------------</p>
-          <p>Currency: ------------------</p>
-          <p>Created on: ----------------</p>
+          <p>Amount: {{order.Amount}}</p>
+          <p>Currency: {{order.Currency}}</p>
+          <p>Created on: {{order.OrderCreatedOn}}</p>
         </div>
       </div>
       <br/>
@@ -74,25 +74,25 @@
           </div>
           <div class="list-group-content row">
             <div class="table-column text-nowrap text-truncate col-1">
-              <strong>ID</strong>
+              <strong>{{order.MerchantID}}</strong>
             </div>
             <div class="table-column text-nowrap text-truncate col-2">
-              <strong>Merchant amount</strong>
+              <strong>{{order.MerchantAmount}}</strong>
             </div>
             <div class="table-column text-nowrap text-truncate col-2">
-              <strong>CreditcardBIN</strong>
+              <strong>{{order.CreaditCardBin}}</strong>
             </div>
             <div class="table-column text-nowrap text-truncate col-1">
-              <strong>Status</strong>
+              <strong>{{order.Status}}</strong>
             </div>
             <div class="table-column text-nowrap text-truncate col-2">
-              <strong>Status details</strong>
+              <strong>{{order.StatusDetails}}</strong>
             </div>
             <div class="table-column text-nowrap text-truncate col-2">
-              <strong>Payment method</strong>
+              <strong>{{order.PaymentMethod}}</strong>
             </div>
             <div class="table-column text-nowrap text-truncate col-2">
-              <strong>Created on</strong>
+              <strong>{{order.PaymentCreatedOn}}</strong>
             </div>
           </div>
         </div>

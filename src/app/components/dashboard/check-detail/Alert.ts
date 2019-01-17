@@ -1,7 +1,7 @@
 export class Alert {
-  public OrderId: string;
+  public id: string;
 
-  constructor(OrderId: string) {
-    this.OrderId = OrderId;
+  constructor(id: string) {
+    this.id = id;
   }
 }

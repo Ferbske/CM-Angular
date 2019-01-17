@@ -39,6 +39,7 @@ export class CheckDetailComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
+          this.alerts = response.items;
         },
         (error) => console.log(error)
       );
