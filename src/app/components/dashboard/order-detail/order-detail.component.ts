@@ -10,7 +10,7 @@ import {Order} from './Order';
   styleUrls: ['./order-detail.component.css']
 })
 export class OrderDetailComponent implements OnInit {
-  order: Order[];
+  order: Order;
 
   constructor(private _location: Location, private checkService: CheckService,private route: ActivatedRoute) { }
 
