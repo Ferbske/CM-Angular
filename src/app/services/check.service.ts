@@ -44,7 +44,7 @@ export class CheckService {
   }
 
   updateMerchantCheck(countries: string[], category: string, checkName: string, checkId: string) {
-    this.http.post<any>(this.apiURL + '/merchantchecks/' + checkId, {countries, category, checkName}, this.headers)
+    this.http.put<any>(this.apiURL + '/merchantchecks/' + checkId, {countries, category, checkName}, this.headers)
       .subscribe(
         (response) => {
           console.log(response);
@@ -72,5 +72,13 @@ export class CheckService {
 
   deleteMerchantCheck(checkId: string) {
     return this.http.delete(this.apiURL + '/merchantchecks/' + checkId, this.headers);
+  }
+
+  getAlerts(checkId: string) {
+    return this.http.get<any>(this.apiURL + '/alerts/' + checkId, this.headers);
+  }
+
+  getOrder(orderId: string) {
+    return this.http.get<any>(this.apiURL + '/orders/' + orderId, this.headers);
   }
 }
